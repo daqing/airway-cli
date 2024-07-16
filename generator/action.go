@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/daqing/airway-cli/lib/helper"
+	"github.com/daqing/airway-cli/helper"
 )
 
 type ActionGenerator struct {

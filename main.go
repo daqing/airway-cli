@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/daqing/airway-cli/lib/generator"
+	"github.com/daqing/airway-cli/generator"
 )
 
 func main() {

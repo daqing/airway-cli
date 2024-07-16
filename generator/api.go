@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/daqing/airway-cli/lib/helper"
+	"github.com/daqing/airway-cli/helper"
 )
 
 func GenAPI(xargs []string) {

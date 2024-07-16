@@ -3,7 +3,7 @@ package generator
 import (
 	"fmt"
 
-	"github.com/daqing/airway-cli/lib/helper"
+	"github.com/daqing/airway-cli/helper"
 )
 
 func Generate(args []string) {
