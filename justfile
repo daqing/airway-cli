@@ -1,7 +1,7 @@
 bin:
-  go build -o ./bin
+  go build ./cmd/airway -o ./bin
 
 install:
-  go install github.com/daqing/airway-cli@latest
+  go install github.com/daqing/airway-cli/cmd/airway@latest
 
 i: install
