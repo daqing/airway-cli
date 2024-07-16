@@ -18,6 +18,8 @@ func main() {
 	switch args[0] {
 	case "g":
 		generator.Generate(args[1:])
+	case "-v", "version":
+		showVersion()
 	default:
 		showHelp()
 	}
@@ -25,5 +27,9 @@ func main() {
 }
 
 func showHelp() {
-	fmt.Println("airway g [what] [params]")
+	fmt.Println("airway [-v | g] [what] [params]")
+}
+
+func showVersion() {
+	fmt.Printf("%s\n", version())
 }
