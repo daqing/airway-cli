@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/daqing/airway-cli/helper"
+	"github.com/daqing/airway-cli/tpl"
 )
 
 type ActionGenerator struct {
@@ -14,20 +15,20 @@ type ActionGenerator struct {
 }
 
 func GenAction(xargs []string) {
-	if len(xargs) != 3 {
-		helper.Help("airway g action [top-dir] [api] [action]")
+	if len(xargs) != 2 {
+		helper.Help("airway g action [api] [action]")
 	}
 
-	GenerateAPIAction(xargs[0], xargs[1], xargs[2])
+	GenerateAPIAction(xargs[0], xargs[1])
 }
 
-func GenerateAPIAction(topDir, mod string, name string) {
-	apiName := apiDirName(topDir, mod)
+func GenerateAPIAction(mod, name string) {
+	apiName := apiDirName(mod)
 
 	targetFileName := strings.Join(
 		[]string{
 			".",
-			topDir,
+			"app",
 			"api",
 			apiName,
 			name + "_action.go",
@@ -36,7 +37,7 @@ func GenerateAPIAction(topDir, mod string, name string) {
 	)
 
 	err := helper.ExecTemplate(
-		"./cli/template/api/action.txt",
+		tpl.Action(),
 		targetFileName,
 		ActionGenerator{Mod: mod, Name: helper.ToCamel(name), APIName: apiName},
 	)

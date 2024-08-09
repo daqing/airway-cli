@@ -15,16 +15,12 @@ func pathExists(path string) bool {
 }
 
 // Execute the data with template from path and write to out
-func ExecTemplate(path string, out string, data any) error {
+func ExecTemplate(txt string, out string, data any) error {
 	if pathExists(out) {
 		return os.ErrExist
 	}
 
-	if !pathExists(path) {
-		return fmt.Errorf("template %s does not exist", path)
-	}
-
-	return execTemplate(path, out, data)
+	return execTemplate(txt, out, data)
 }
 
 func ExecTemplateForce(path string, out string, data any) error {
@@ -39,12 +35,7 @@ func ExecTemplateForce(path string, out string, data any) error {
 	return execTemplate(path, out, data)
 }
 
-func execTemplate(path, out string, data any) error {
-	txt, err := os.ReadFile(path)
-	if err != nil {
-		return err
-	}
-
+func execTemplate(txt, out string, data any) error {
 	tmpl, err := template.New("test").Parse(string(txt))
 	if err != nil {
 		return err
