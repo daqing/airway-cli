@@ -19,6 +19,8 @@ func Generate(args []string) {
 		GenAction(xargs)
 	case "api":
 		GenAPI(xargs)
+	case "model":
+		GenModel(xargs)
 	default:
 		panic("unknown generator")
 	}
