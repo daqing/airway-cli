@@ -21,6 +21,8 @@ func Generate(args []string) {
 		GenAPI(xargs)
 	case "model":
 		GenModel(xargs)
+	case "migration":
+		GenMigration(xargs)
 	default:
 		panic("unknown generator")
 	}
