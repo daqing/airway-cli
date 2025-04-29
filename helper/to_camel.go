@@ -15,3 +15,7 @@ func ToCamel(s string) string {
 
 	return r
 }
+
+func ToLower(s string) string {
+	return strings.ToLower(s)
+}

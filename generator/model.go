@@ -22,6 +22,7 @@ type Data struct {
 }
 
 func GenerateModel(name string, fields []string) {
+	name = helper.ToLower(name)
 
 	targetPath := strings.Join([]string{
 		".",
@@ -34,24 +35,22 @@ func GenerateModel(name string, fields []string) {
 		tpl.Model(),
 		targetPath,
 		Data{
-			Name:      helper.ToCamel(name),
-			TableName: name + "s",
-			Fields:    buildFields(fields),
+			Name: helper.ToCamel(name),
 		},
 	)
 }
 
-func buildFields(fields []string) string {
-	if len(fields) == 0 {
-		return ""
-	}
+// func buildFields(fields []string) string {
+// 	if len(fields) == 0 {
+// 		return ""
+// 	}
 
-	// fields are in the form of "email:string age:int"
-	var result []string
-	for _, f := range fields {
-		parts := strings.Split(f, ":")
-		result = append(result, helper.ToCamel(parts[0])+" "+parts[1]+" `json:\""+parts[0]+"\"`")
-	}
+// 	// fields are in the form of "email:string age:int"
+// 	var result []string
+// 	for _, f := range fields {
+// 		parts := strings.Split(f, ":")
+// 		result = append(result, helper.ToCamel(parts[0])+" "+parts[1]+" `json:\""+parts[0]+"\"`")
+// 	}
 
-	return strings.Join(result, "\n")
-}
+// 	return strings.Join(result, "\n")
+// }

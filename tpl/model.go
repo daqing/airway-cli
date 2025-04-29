@@ -2,17 +2,15 @@ package tpl
 
 func Model() string {
 	return `
-		package models
+package models
 
-		type {{.Name}} struct {
-			ID IdType ` +
-		"`gorm:\"primarykey\" json:\"id\"`\n\n" +
-		`{{.Fields}}` +
-		"\n\nCreatedAt Timestamp `json:\"created_at\"`" +
-		"\nUpdatedAt Timestamp `json:\"updated_at\"`" +
+import "time"
+
+type {{.Name}} struct {
+	ID IdType ` +
+		"`json:\"id\"`\n" +
+		"\n  CreatedAt time.Time `json:\"created_at\"`" +
+		"\n  UpdatedAt time.Time `json:\"updated_at\"`" +
 		`
-    }
-
-		func ({{.Name}}) TableName() string { return "{{.TableName}}" }
-	`
+}`
 }
