@@ -14,7 +14,7 @@ func {{.Name}}Action(c *gin.Context) {
 	var p {{.Name}}Params
 
 	if err := c.BindJSON(&p); err != nil {
-		api_resp.LogError(c, err)
+		resp.Error(c, err)
 		return
 	}
 }
