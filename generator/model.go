@@ -38,6 +38,24 @@ func GenerateModel(name string, fields []string) {
 			Name: helper.ToCamel(name),
 		},
 	)
+
+	// generate table
+	tablePath := strings.Join([]string{
+		".",
+		"app",
+		"tables",
+		name + ".go",
+	}, "/")
+
+	helper.ExecTemplate(
+		tpl.Table(),
+		tablePath,
+		Data{
+			Name:      helper.ToCamel(name),
+			TableName: name + "s",
+		},
+	)
+
 }
 
 // func buildFields(fields []string) string {
