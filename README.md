@@ -9,7 +9,7 @@ Install
 Run:
 
 ```bash
-go install github.com/daqing/airway-cli/cmd/airway@latest
+go install github.com/daqing/airway-cli/cmd/awcli@latest
 ```
 
 This will install `airway` to `$HOME/go/bin`.
