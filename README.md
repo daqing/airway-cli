@@ -12,4 +12,4 @@ Run:
 go install github.com/daqing/airway-cli/cmd/awcli@latest
 ```
 
-This will install `airway` to `$HOME/go/bin`.
+This will install command `awcli` to `$HOME/go/bin`.
