@@ -39,7 +39,9 @@ func main() {
 }
 
 func showHelp() {
-	fmt.Println("airway [-v | g] [what] [params]")
+	fmt.Println("awcli -v")
+	fmt.Println("awcli g [what] [params]")
+	fmt.Println("awcli [migrate|rollback|migrate:status]")
 }
 
 func showVersion() {
