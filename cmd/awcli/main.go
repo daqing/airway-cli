@@ -7,6 +7,7 @@ import (
 	"github.com/daqing/airway-cli/generator"
 	"github.com/daqing/airway-cli/helper"
 	"github.com/daqing/airway-cli/migration"
+	"github.com/daqing/airway-cli/plugin"
 	"github.com/daqing/gomigrate/lib"
 )
 
@@ -30,6 +31,8 @@ func main() {
 	case "migrate:status":
 		lib.CheckOrCreateTable(helper.GetDSN())
 		migration.Status(args[1:])
+	case "plugin:install":
+		plugin.Install(args[1:])
 	case "-v", "version":
 		showVersion()
 	default:
@@ -41,7 +44,8 @@ func main() {
 func showHelp() {
 	fmt.Println("awcli -v")
 	fmt.Println("awcli g [what] [params]")
-	fmt.Println("awcli [migrate|rollback|migrate:status]")
+	fmt.Println("awcli migrate|rollback|migrate:status")
+	fmt.Println("awcli plugin:install [/path/to/project]")
 }
 
 func showVersion() {
