@@ -24,6 +24,13 @@ func Install(args []string) {
 		return
 	}
 
+	// copy ./cmd to [projectPath]/cmd
+	err = helper.System(fmt.Sprintf("cp -R ./cmd/* %s/cmd/", projectPath), false)
+	if err != nil {
+		fmt.Println("Copy ./cmd to project failed:", err)
+		return
+	}
+
 	// copy ./db/migrate to [projectPath]/db/migrate
 	// we need to prepend a timestamp to the migration file name
 	timestamp := fmt.Sprintf("%s", time.Now().Format("20060102150405"))
