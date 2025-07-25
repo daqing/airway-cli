@@ -15,8 +15,8 @@ type ServiceData struct {
 }
 
 func GenService(args []string) {
-	if len(args) == 0 {
-		fmt.Println("Usage: awcli g service <name>")
+	if len(args) < 2 {
+		fmt.Println("Usage: awcli g service <name> <field:type> <field:type>...")
 		return
 	}
 
