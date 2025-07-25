@@ -35,40 +35,8 @@ func GenerateModel(name string, fields []string) {
 		tpl.Model(),
 		targetPath,
 		Data{
-			Name: helper.ToCamel(name),
-		},
-	)
-
-	// generate table
-	tablePath := strings.Join([]string{
-		".",
-		"app",
-		"tables",
-		name + ".go",
-	}, "/")
-
-	helper.ExecTemplate(
-		tpl.Table(),
-		tablePath,
-		Data{
 			Name:      helper.ToCamel(name),
 			TableName: name + "s",
 		},
 	)
-
 }
-
-// func buildFields(fields []string) string {
-// 	if len(fields) == 0 {
-// 		return ""
-// 	}
-
-// 	// fields are in the form of "email:string age:int"
-// 	var result []string
-// 	for _, f := range fields {
-// 		parts := strings.Split(f, ":")
-// 		result = append(result, helper.ToCamel(parts[0])+" "+parts[1]+" `json:\""+parts[0]+"\"`")
-// 	}
-
-// 	return strings.Join(result, "\n")
-// }

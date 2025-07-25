@@ -11,5 +11,9 @@ type {{.Name}} struct {
 		"\n  CreatedAt time.Time `json:\"created_at\"`" +
 		"\n  UpdatedAt time.Time `json:\"updated_at\"`" +
 		`
+}
+
+func ({{.Name}}) TableName() string {
+	return "{{.TableName}}"
 }`
 }
