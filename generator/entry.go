@@ -23,6 +23,10 @@ func Generate(args []string) {
 		GenModel(xargs)
 	case "migration":
 		GenMigration(xargs)
+	case "service":
+		GenService(xargs)
+	case "cmd":
+		GenCmd(xargs)
 	default:
 		panic("unknown generator")
 	}
