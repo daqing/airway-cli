@@ -43,8 +43,8 @@ func main() {
 
 func showHelp() {
 	fmt.Println("awcli -v")
-	fmt.Println("awcli g [what] [params]")
-	fmt.Println("awcli migrate|rollback|migrate:status")
+	fmt.Println("awcli g [action|api|model|migration|service|cmd] [params]")
+	fmt.Println("awcli [migrate|rollback|migrate:status]")
 	fmt.Println("awcli plugin:install [/path/to/project]")
 }
 

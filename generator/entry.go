@@ -8,7 +8,7 @@ import (
 
 func Generate(args []string) {
 	if len(args) == 0 {
-		helper.Help("airway g [what] [params]")
+		helper.Help("awcli g [action|api|model|migration|service|cmd] [params]")
 	}
 
 	thing := args[0]
